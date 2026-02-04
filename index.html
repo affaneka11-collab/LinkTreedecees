@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="dcslogo.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title>Double Coupler Studio LinkTree</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #555c7d 1%, #484ab6 100%);
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #fff;
             margin: 0;
             padding: 0;
@@ -17,16 +18,18 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-x: hidden;
         }
         header {
             width: 97%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
             padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             display: flex;
             justify-content: flex-start;
             height: 100px;
+            border-radius: 0 0 20px 20px;
         }
         header div {
             max-width: 100%;
@@ -39,164 +42,230 @@
             width: 80px;
             height: 80px;
             object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        .logo1 {
+            width: 150px;
+            height: 130px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
         header h1 {
             margin: 0;
             color: #fff;
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         .linktree-container {
             max-width: 600px;
             width: 90%;
             padding: 40px 20px;
             text-align: center;
+            animation: fadeInUp 1s ease-out;
         }
-        .linktree-container h1 {
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .linktree-container h2 {
             font-size: 32px;
             margin-bottom: 30px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
         }
         .link-item {
             display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             color: #fff;
             text-decoration: none;
             padding: 15px 20px;
             margin: 10px 0;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            transition: all 0.4s ease;
             font-size: 18px;
             font-weight: 500;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             width: 100%;
             box-sizing: border-box;
-            min-height: 48px; /* Tinggi minimal untuk mudah diklik di mobile */
+            min-height: 48px;
+            backdrop-filter: blur(10px);
         }
         .link-item:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
         .link-item img {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
+            width: 24px;
+            height: 24px;
+            margin-right: 15px;
             object-fit: contain;
         }
         .dropdown-btn {
+            display: flex;
             align-items: center;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             color: #fff;
             text-decoration: none;
-            padding: 23px 20px;
-            margin: 10px 0;
-            border-radius: 10px;
-            transition: all 0.3s ease;
+            padding: 20px 25px;
+            margin: 15px 0;
+            border-radius: 15px;
+            transition: all 0.4s ease;
             font-size: 18px;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             cursor: pointer;
             border: none;
             width: 100%;
             box-sizing: border-box;
-            min-height: 48px; 
-            margin-top: 20px;
-            
+            min-height: 48px;
+            backdrop-filter: blur(10px);
         }
         .dropdown-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
         }
         .dropdown-btn img {
-            width: 40px;
-            height: 40px;
-            margin-right: 10px;
+            width: 32px;
+            height: 32px;
+            margin-right: 15px;
             object-fit: contain;
-            display: flex;
         }
         .sub-links {
             display: none;
-            margin-top: 10px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 0.5s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .sub-links .link-item {
-            margin: 5px 0;
+            margin: 8px 0;
             width: 100%;
             box-sizing: border-box;
         }
-        #bck {
-            padding: 10px;
-            margin: 10px;
-            font-size: 16px;
-            border: 2px solid #000000;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
+        .customer-care {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #25d366, #128c7e);
             color: #fff;
+            padding: 15px 20px;
+            border-radius: 50px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .customer-care:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        .customer-care img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 14px;
+            opacity: 0.8;
+            text-align: center;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Media Queries untuk Responsivitas */
         @media (max-width: 768px) {
             header {
-                width: 95%; /* Lebih kecil di mobile */
+                width: 95%;
                 padding: 15px;
-                height: auto; /* Tinggi otomatis */
+                height: auto;
             }
             .logo {
-                width: 60px; /* Logo lebih kecil di mobile */
+                width: 60px;
                 height: 60px;
             }
             header h1 {
-                font-size: 20px; /* Font lebih kecil */
+                font-size: 20px;
             }
             .linktree-container {
-                width: 95%; /* Lebih lebar di mobile */
+                width: 95%;
                 padding: 20px 10px;
             }
-            .linktree-container h1 {
-                font-size: 28px; /* Font lebih kecil */
+            .linktree-container h2 {
+                font-size: 28px;
                 margin-bottom: 20px;
             }
             .link-item, .dropdown-btn {
-                font-size: 16px; /* Font lebih kecil untuk readability */
-                padding: 12px 15px; /* Padding lebih kecil */
-                min-height: 44px; /* Standar mobile */
+                font-size: 16px;
+                padding: 12px 15px;
+                min-height: 44px;
             }
             .link-item img, .dropdown-btn img {
-                width: 18px; /* Gambar lebih kecil */
-                height: 18px;
+                width: 20px;
+                height: 20px;
             }
             .sub-links {
-                padding: 8px; /* Padding lebih kecil */
+                padding: 10px;
+            }
+            .customer-care {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 18px;
+                font-size: 14px;
+            }
+            .customer-care img {
+                width: 20px;
+                height: 20px;
             }
         }
 
         @media (min-width: 769px) {
-            /* Desktop: Tetap seperti asli, tapi bisa tambah efek jika perlu */
             .link-item:hover, .dropdown-btn:hover {
-                transform: translateY(-3px); /* Efek hover lebih kuat di desktop */
+                transform: translateY(-4px) scale(1.02);
             }
         }
     </style>
 </head>
 <body>
     <header>
+        <img src="dcslogo.png" class="logo" alt="Logo">
         <div>
-            <img src="dcslogo.png" class="logo" alt="Logo">
+            <h1>Double Coupler Studio</h1>
         </div>
     </header>
     <div class="linktree-container">
-        <h1>Double Coupler Studio LinkTree</h1>
-        <!-- Tombol utama dengan sub-tombol -->
+        <img src="dcslogo.png" class="logo1" alt="Logo">
+        <h2>LinkTrees</h2>
         <button class="dropdown-btn" onmouseenter="toggleSubLinks('social-links')" onclick="togglehiddenlinktree('social-links')">  
-            <img src="social.png" alt=""> Social Media Links
-        </button> <!-- Menambahkan gambar untuk tombol utama, ganti src jika perlu -->
+            <img src="social.png" alt="Social Media"> Social Media Links
+        </button>
         <div id="social-links" class="sub-links">
             <a href="https://discord.gg/twRUf5dxnc" class="link-item" target="_blank">
                 <img src="dscrd.png" alt="Discord"> Discord
@@ -214,7 +283,6 @@
                 <img src="wa.png" alt="Whatsapp"> Whatsapp Channel
             </a>
         </div>
-        <!-- Link lainnya jika diperlukan -->
         <button class="dropdown-btn" onmouseenter="toggleSubLinks('roblox')" onclick="togglehiddenlinktree('roblox')">
             <img src="roblox.png" alt="Roblox"> Roblox Links
         </button>
@@ -222,7 +290,7 @@
             <a href="" class="link-item" target="_blank">
                 <img src="roblox.png" alt="Inmitra"> Inmitra
             </a>
-            <a href="" class="link-item" target="_blank">
+            <a href="https://www.roblox.com/id/games/112972515177807/Nusantara-Millenium-Railway" class="link-item" target="_blank">
                 <img src="roblox.png" alt="Inmitra"> Nusantara Milenium Railway (NMR)
             </a>
             <a href="" class="link-item" target="_blank">
@@ -232,30 +300,25 @@
                 <img src="roblox.png" alt="Inmitra"> Game-4
             </a>
         </div>
-        <button class="dropdown-btn" herf="https://api.whatsapp.com/send/?phone=%2B6282220949233&text&type=phone_number&app_absent=0">
-            <img src="wa.png" alt="Roblox"> Customer
-        </button>
     </div>
+    <a href="https://wa.me/6282220949233" class="customer-care" target="_blank">
+        <img src="wa.png" alt="Whatsapp"> Customer Care
+    </a>
+    <footer>
+        © Copyright ICT DCS <a href="https://wa.me/6282220949233">affan_eka</a>
+    </footer>
     
     <script>
-        function toggleSubLinks(id, s) {
-            var subLinks = document.getElementById(id);
-            var jenis = document.getElementsByClassName(s);
-            isVisible = true
-            subLinks.style.display = "block";
-
-        }
+        let isVisible = false;
         function togglehiddenlinktree(id) {
-            var linktreeContainer = document.getElementById(id);
-            if (isVisible == true) {
+            const linktreeContainer = document.getElementById(id);
+            if (isVisible) {
                 linktreeContainer.style.display = "none";
-            }else {
+            } else {
                 linktreeContainer.style.display = "block";
             }
-            isVisible = !isVisible
+            isVisible = !isVisible;
         }
     </script>
 </body>
 </html>
-
-
