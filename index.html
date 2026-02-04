@@ -47,7 +47,7 @@
         }
         .linktree-container {
             max-width: 600px;
-            width: 90%; /* Responsif: 90% di layar kecil */
+            width: 90%;
             padding: 40px 20px;
             text-align: center;
         }
@@ -59,7 +59,6 @@
         .link-item {
             display: flex;
             align-items: center;
-            justify-content: center; /* Teks dan gambar di tengah */
             background: rgba(255, 255, 255, 0.2);
             color: #fff;
             text-decoration: none;
@@ -86,9 +85,7 @@
             object-fit: contain;
         }
         .dropdown-btn {
-            display: flex;
             align-items: center;
-            justify-content: center; /* Teks dan gambar di tengah */
             background: rgba(255, 255, 255, 0.2);
             color: #fff;
             text-decoration: none;
@@ -103,7 +100,9 @@
             border: none;
             width: 100%;
             box-sizing: border-box;
-            min-height: 48px; /* Tinggi minimal untuk mudah diklik di mobile */
+            min-height: 48px; 
+            margin-top: 20px;
+            
         }
         .dropdown-btn:hover {
             background: rgba(255, 255, 255, 0.3);
@@ -111,10 +110,11 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         .dropdown-btn img {
-            width: 20px;
-            height: 20px;
+            width: 40px;
+            height: 40px;
             margin-right: 10px;
             object-fit: contain;
+            display: flex;
         }
         .sub-links {
             display: none;
@@ -187,7 +187,7 @@
 <body>
     <header>
         <div>
-            <img src="dcslogo.png" class="logo" alt="Logo">
+            <img src="img/dcslogo.png" class="logo" alt="Logo">
         </div>
     </header>
     <div class="linktree-container">
@@ -222,15 +222,18 @@
                 <img src="roblox.png" alt="Inmitra"> Inmitra
             </a>
             <a href="" class="link-item" target="_blank">
-                <img src="roblox.png" alt="Inmitra"> Nusantara Milenium Railway
+                <img src="roblox.png" alt="Inmitra"> Nusantara Milenium Railway (NMR)
             </a>
             <a href="" class="link-item" target="_blank">
-                <img src="roblox.png" alt="Inmitra"> Game-3
+                <img src="roblox.png" alt="Inmitra"> Indonesian Train Drive Simulator (ITDS)
             </a>
             <a href="" class="link-item" target="_blank">
                 <img src="roblox.png" alt="Inmitra"> Game-4
             </a>
         </div>
+        <button class="dropdown-btn" herf="">
+            <img src="wa.png" alt="Roblox"> Customer
+        </button>
     </div>
     
     <script>
@@ -252,6 +255,4 @@
         }
     </script>
 </body>
-
 </html>
-
