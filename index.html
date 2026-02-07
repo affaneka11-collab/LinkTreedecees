@@ -24,6 +24,9 @@
             /* Tambahkan untuk intro overlay */
             position: relative;
         }
+        .wrphorizon {
+            display: flex;
+        }
         .greenroundbck {
             scale: 0.8;
             background-color: #04e0556a; /* Fallback: rgba(4, 224, 85, 0.42) untuk browser lama */
@@ -42,6 +45,29 @@
             box-sizing: border-box; /* Mencegah padding menambah ukuran */
         }
         .greenroundbck img {
+            height: 20px;
+            /* Hapus properti yang tidak perlu; flexbox dari parent akan menangani centering */
+            /* Jika perlu penyesuaian khusus, gunakan margin atau flex-shrink */
+            flex-shrink: 0; /* Mencegah gambar menyusut */
+        }
+        .greyroundbck {
+            scale: 0.8;
+            background-color: #9a9a9a6a; /* Fallback: rgba(4, 224, 85, 0.42) untuk browser lama */
+            border-radius: 20px; /* Atau gunakan 50% untuk bentuk bulat penuh jika elemen persegi */
+            padding: 2px 5px;
+            padding-right: 11px;
+            display: flex; /* Menggunakan flexbox untuk centering */
+            max-width: fit-content;
+            align-items: center; /* Sekarang berfungsi untuk centering vertikal */
+            justify-content: center; /* Centering horizontal */
+            font-size: medium;
+            font-weight: bold;
+            color: rgb(67, 67, 67);
+            text-align: center;
+            /* Tambahan untuk konsistensi */
+            box-sizing: border-box; /* Mencegah padding menambah ukuran */
+        }
+        .greyroundbck img {
             height: 20px;
             /* Hapus properti yang tidak perlu; flexbox dari parent akan menangani centering */
             /* Jika perlu penyesuaian khusus, gunakan margin atau flex-shrink */
@@ -244,7 +270,6 @@
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
-            /* Tambahkan opacity dan transform untuk animasi */
             opacity: 0;
             transform: translateX(100px);
         }
@@ -263,7 +288,6 @@
             font-size: 14px;
             opacity: 0.8;
             text-align: center;
-            /* Tambahkan opacity untuk animasi */
             opacity: 0;
             transform: translateY(20px);
         }
@@ -276,7 +300,6 @@
             text-decoration: underline;
         }
 
-        /* Media Queries untuk Responsivitas */
         @media (max-width: 768px) {
             header {
                 width: 95%;
@@ -337,7 +360,6 @@
     </style>
 </head>
 <body>
-    <!-- Overlay untuk intro animasi -->
     <div class="intro-overlay">
         <div style="text-align: center;">
             <img src="dcslogo.png" class="intro-logo" alt="Intro Logo">
@@ -381,32 +403,56 @@
             <h4> Tidak Mendapat Update </h4>
             <a href="https://www.roblox.com/id/games/18543659842/Indonesia-Millenium-Train-Sector-Sembon" class="link-item" target="_blank">
                 <img src="inmitra.png" alt="Inmitra"> Inmitra
-                <span class="greenroundbck">
-                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
-                    Published
-                </span>
+                <div class="wrphorizon">
+                    <span class="greenroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                        Published
+                    </span>
+                    <span class="greyroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_do_not_disturb_on_neutral_20x20_65d02e4c33a1f08daad354d59f00a0ff.png">
+                        Not Updated
+                    </span>
+                </div>
             </a>
             <a href="https://www.roblox.com/id/games/112887240560643/INDONESIA-TRAIN-DRIVE-SIMULATOR" class="link-item" target="_blank">
                 <img src="itds.png" alt="ITDS"> Indonesian Train Drive Simulator (ITDS)
-                <span class="greenroundbck">
-                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
-                    Published
-                </span>
+                <div class="wrphorizon">
+                    <span class="greenroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                        Published
+                    </span>
+                    <span class="greyroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_do_not_disturb_on_neutral_20x20_65d02e4c33a1f08daad354d59f00a0ff.png">
+                        Not Updated
+                    </span>
+                </div>
             </a>
             <h4> Masih Update </h4>
             <a href="https://www.roblox.com/id/games/112972515177807/Nusantara-Millenium-Railway" class="link-item" target="_blank">
                 <img src="nmr.png" alt="NMR"> Nusantara Milenium Railway (NMR)
-                <span class="greenroundbck">
-                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
-                    Published
-                </span>
+                <div class="wrphorizon">
+                    <span class="greenroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                        Published
+                    </span>
+                    <span class="greenroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                        Updated
+                    </span>
+                </div>
             </a>
             <a href="https://www.roblox.com/id/games/95965113212556/Indonesia-Train-Incident" class="link-item" target="_blank">
                 <img src="jtc.png" alt="JTC"> Indonesia Train Incident
-                <span class="greenroundbck">
-                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
-                    Published
-                </span>
+                <div class="wrphorizon">
+                    <span class="greenroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                        Published
+                    </span>
+                    <span class="greenroundbck">
+                        <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                        Updated
+                    </span>
+                </div>
             </a>
         </div>
     </div>
@@ -429,13 +475,12 @@
         }
     </script>
     <script>
-        // Animasi intro menggunakan Anime.js, mirip dengan ldp.net.id (splash screen dengan logo dan teks)
+
         window.addEventListener('load', () => {
             const introOverlay = document.querySelector('.intro-overlay');
             const introLogo = document.querySelector('.intro-logo');
             const introText = document.querySelector('.intro-text');
 
-            // Animasi logo intro: scale, rotate, dan fade in
             anime({
                 targets: introLogo,
                 opacity: 1,
@@ -445,7 +490,6 @@
                 easing: 'easeOutElastic(1, .8)'
             });
 
-            // Animasi teks intro: fade in dan slide up
             anime({
                 targets: introText,
                 opacity: 1,
@@ -455,7 +499,6 @@
                 easing: 'easeOutExpo'
             });
 
-            // Setelah animasi intro selesai, fade out overlay dan mulai animasi utama
             setTimeout(() => {
                 anime({
                     targets: introOverlay,
@@ -463,10 +506,7 @@
                     duration: 1000,
                     easing: 'easeOutExpo',
                     complete: () => {
-                        introOverlay.style.display = 'none'; // Sembunyikan overlay setelah animasi
-
-                        // Mulai animasi elemen utama setelah intro
-                        // Animasi header
+                        introOverlay.style.display = 'none'; 
                         anime({
                             targets: 'header',
                             opacity: 1,
@@ -475,7 +515,6 @@
                             easing: 'easeOutExpo'
                         });
 
-                        // Animasi logo besar di linktree-container
                         anime({
                             targets: '.logo1',
                             opacity: 1,
@@ -485,7 +524,6 @@
                             easing: 'easeOutElastic(1, .8)'
                         });
 
-                        // Animasi h2
                         anime({
                             targets: '.linktree-container h2',
                             opacity: 1,
@@ -495,7 +533,6 @@
                             easing: 'easeOutExpo'
                         });
 
-                        // Animasi linktree-container
                         anime({
                             targets: '.linktree-container',
                             opacity: 1,
@@ -505,7 +542,6 @@
                             easing: 'easeOutExpo'
                         });
 
-                        // Animasi dropdown buttons
                         anime({
                             targets: '.dropdown-btn',
                             opacity: 1,
@@ -515,7 +551,6 @@
                             easing: 'easeOutExpo'
                         });
 
-                        // Animasi customer-care
                         anime({
                             targets: '.customer-care',
                             opacity: 1,
@@ -525,7 +560,6 @@
                             easing: 'easeOutExpo'
                         });
 
-                        // Animasi footer
                         anime({
                             targets: 'footer',
                             opacity: 1,
@@ -536,8 +570,8 @@
                         });
                         }
                     });
-                }, 2500); // Durasi total intro sebelum fade out
+                }, 2500);
             });
-</script>
+    </script>
 </body>
 </html>
