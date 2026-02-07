@@ -143,8 +143,6 @@
             box-sizing: border-box;
             min-height: 48px;
             backdrop-filter: blur(10px);
-            /* Tambahkan opacity untuk animasi */
-            opacity: 0;
             transform: translateY(20px);
         }
         .link-item:hover {
@@ -205,11 +203,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-        .sub-links .link-item {
-            margin: 8px 0;
-            width: 100%;
-            box-sizing: border-box;
         }
         .customer-care {
             position: fixed;
@@ -282,7 +275,7 @@
                 font-size: 28px;
                 margin-bottom: 20px;
             }
-            .link-item, .dropdown-btn {
+            .dropdown-btn {
                 font-size: 16px;
                 padding: 12px 15px;
                 min-height: 44px;
@@ -338,7 +331,7 @@
     <div class="linktree-container">
         <img src="dcslogo.png" class="logo1" alt="Logo">
         <h2>LinkTrees</h2>
-        <button class="dropdown-btn" onmouseenter="toggleSubLinks('social-links')" onclick="togglehiddenlinktree('social-links')">  
+        <button class="dropdown-btn" onclick="togglehiddenlinktree('social-links')">  
             <img src="social.png" alt="Social Media"> Social Media Links
         </button>
         <div id="social-links" class="sub-links">
@@ -358,7 +351,7 @@
                 <img src="wa.png" alt="Whatsapp"> Whatsapp Channel
             </a>
         </div>
-        <button class="dropdown-btn" onmouseenter="toggleSubLinks('roblox')" onclick="togglehiddenlinktree('roblox')">
+        <button class="dropdown-btn" onclick="togglehiddenlinktree('roblox')">
             <img src="roblox.png" alt="Roblox"> Roblox Links
         </button>
         <div id="roblox" class="sub-links">
@@ -387,22 +380,16 @@
     </footer>
     
     <script>
-        sociallink = document.getElementById("social-links")
-        robloxlink = document.getElementById("roblox")
-        rblx = false
-        scial = false
-        let isVisible = false;
-
         function togglehiddenlinktree(id) {
             const linktreeContainer = document.getElementById(id);
-            if (isVisible) {
+            if (linktreeContainer.style.display === "block") {
                 linktreeContainer.style.display = "none";
             } else {
                 linktreeContainer.style.display = "block";
             }
-            isVisible = !isVisible;
         }
-
+    </script>
+    <script>
         // Animasi intro menggunakan Anime.js, mirip dengan ldp.net.id (splash screen dengan logo dan teks)
         window.addEventListener('load', () => {
             const introOverlay = document.querySelector('.intro-overlay');
@@ -485,7 +472,7 @@
                             opacity: 1,
                             translateY: 0,
                             duration: 800,
-                            delay : anime.stagger(200, {start: 1000}),
+                            delay: anime.stagger(200, {start: 1000}),
                             easing: 'easeOutExpo'
                         });
 
@@ -508,10 +495,10 @@
                             delay: 1800,
                             easing: 'easeOutExpo'
                         });
-                    }
-                });
-            }, 2500); // Durasi total intro sebelum fade out
-        });
-    </script>
+                        }
+                    });
+                }, 2500); // Durasi total intro sebelum fade out
+            });
+</script>
 </body>
 </html>
