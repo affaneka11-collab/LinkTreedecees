@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="dcslogo.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="google-site-verification" content="vnqFoF3HKyxsWnMAyiAuk60MsbscoxYieP38B9Nxe2M" />
     <title>Double Coupler Studio LinkTree</title>
+    <!-- Tambahkan link ke Anime.js dari CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -20,6 +21,39 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
+            /* Tambahkan untuk intro overlay */
+            position: relative;
+        }
+        /* Overlay untuk intro animasi */
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 1s ease-out;
+        }
+        .intro-logo {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            opacity: 0;
+            transform: scale(0.5) rotate(-180deg);
+        }
+        .intro-text {
+            font-size: 24px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            opacity: 0;
+            transform: translateY(50px);
         }
         header {
             width: 97%;
@@ -31,6 +65,9 @@
             justify-content: flex-start;
             height: 100px;
             border-radius: 0 0 20px 20px;
+            /* Tambahkan opacity dan transform untuk animasi */
+            opacity: 0;
+            transform: translateY(-50px);
         }
         header div {
             max-width: 100%;
@@ -50,6 +87,9 @@
             height: 130px;
             object-fit: contain;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            /* Tambahkan opacity untuk animasi */
+            opacity: 0;
+            transform: scale(0.8);
         }
         header h1 {
             margin: 0;
@@ -63,7 +103,9 @@
             width: 90%;
             padding: 40px 20px;
             text-align: center;
-            animation: fadeInUp 1s ease-out;
+            /* Tambahkan opacity dan transform untuk animasi */
+            opacity: 0;
+            transform: translateY(50px);
         }
         @keyframes fadeInUp {
             from {
@@ -80,6 +122,9 @@
             margin-bottom: 30px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             font-weight: 600;
+            /* Tambahkan opacity untuk animasi */
+            opacity: 0;
+            transform: translateY(20px);
         }
         .link-item {
             display: flex;
@@ -98,6 +143,9 @@
             box-sizing: border-box;
             min-height: 48px;
             backdrop-filter: blur(10px);
+            /* Tambahkan opacity untuk animasi */
+            opacity: 0;
+            transform: translateY(20px);
         }
         .link-item:hover {
             background: rgba(255, 255, 255, 0.35);
@@ -129,6 +177,9 @@
             box-sizing: border-box;
             min-height: 48px;
             backdrop-filter: blur(10px);
+            /* Tambahkan opacity untuk animasi */
+            opacity: 0;
+            transform: translateY(20px);
         }
         .dropdown-btn:hover {
             background: rgba(255, 255, 255, 0.35);
@@ -177,6 +228,9 @@
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
+            /* Tambahkan opacity dan transform untuk animasi */
+            opacity: 0;
+            transform: translateX(100px);
         }
         .customer-care:hover {
             transform: scale(1.05);
@@ -189,10 +243,13 @@
         }
         footer {
             margin-top: 40px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-size: 14px;
             opacity: 0.8;
             text-align: center;
+            /* Tambahkan opacity untuk animasi */
+            opacity: 0;
+            transform: translateY(20px);
         }
         footer a {
             color: #fff;
@@ -247,6 +304,13 @@
                 width: 20px;
                 height: 20px;
             }
+            .intro-logo {
+                width: 150px;
+                height: 150px;
+            }
+            .intro-text {
+                font-size: 20px;
+            }
         }
 
         @media (min-width: 769px) {
@@ -257,6 +321,14 @@
     </style>
 </head>
 <body>
+    <!-- Overlay untuk intro animasi -->
+    <div class="intro-overlay">
+        <div style="text-align: center;">
+            <img src="dcslogo.png" class="intro-logo" alt="Intro Logo">
+            <div class="intro-text">Double Coupler Studio</div>
+        </div>
+    </div>
+
     <header>
         <img src="dcslogo.png" class="logo" alt="Logo">
         <div>
@@ -306,15 +378,21 @@
             </a>
         </div>
     </div>
-    <a href="https://wa.me/6282220949233" class="customer-care" target="_blank">
+    <a href="https://api.whatsapp.com/send/?phone=6285945793232&text&type=phone_number&app_absent=0" class="customer-care" target="_blank">
         <img src="wa.png" alt="Whatsapp"> Customer Care
     </a>
+
     <footer>
         © Copyright ICT DCS <a href="https://wa.me/6282220949233">affan_eka</a>
     </footer>
     
     <script>
+        sociallink = document.getElementById("social-links")
+        robloxlink = document.getElementById("roblox")
+        rblx = false
+        scial = false
         let isVisible = false;
+
         function togglehiddenlinktree(id) {
             const linktreeContainer = document.getElementById(id);
             if (isVisible) {
@@ -324,8 +402,116 @@
             }
             isVisible = !isVisible;
         }
+
+        // Animasi intro menggunakan Anime.js, mirip dengan ldp.net.id (splash screen dengan logo dan teks)
+        window.addEventListener('load', () => {
+            const introOverlay = document.querySelector('.intro-overlay');
+            const introLogo = document.querySelector('.intro-logo');
+            const introText = document.querySelector('.intro-text');
+
+            // Animasi logo intro: scale, rotate, dan fade in
+            anime({
+                targets: introLogo,
+                opacity: 1,
+                scale: 1,
+                rotate: '0deg',
+                duration: 1500,
+                easing: 'easeOutElastic(1, .8)'
+            });
+
+            // Animasi teks intro: fade in dan slide up
+            anime({
+                targets: introText,
+                opacity: 1,
+                translateY: 0,
+                duration: 1000,
+                delay: 500,
+                easing: 'easeOutExpo'
+            });
+
+            // Setelah animasi intro selesai, fade out overlay dan mulai animasi utama
+            setTimeout(() => {
+                anime({
+                    targets: introOverlay,
+                    opacity: 0,
+                    duration: 1000,
+                    easing: 'easeOutExpo',
+                    complete: () => {
+                        introOverlay.style.display = 'none'; // Sembunyikan overlay setelah animasi
+
+                        // Mulai animasi elemen utama setelah intro
+                        // Animasi header
+                        anime({
+                            targets: 'header',
+                            opacity: 1,
+                            translateY: 0,
+                            duration: 1000,
+                            easing: 'easeOutExpo'
+                        });
+
+                        // Animasi logo besar di linktree-container
+                        anime({
+                            targets: '.logo1',
+                            opacity: 1,
+                            scale: 1,
+                            duration: 1200,
+                            delay: 200,
+                            easing: 'easeOutElastic(1, .8)'
+                        });
+
+                        // Animasi h2
+                        anime({
+                            targets: '.linktree-container h2',
+                            opacity: 1,
+                            translateY: 0,
+                            duration: 1000,
+                            delay: 400,
+                            easing: 'easeOutExpo'
+                        });
+
+                        // Animasi linktree-container
+                        anime({
+                            targets: '.linktree-container',
+                            opacity: 1,
+                            translateY: 0,
+                            duration: 1000,
+                            delay: 100,
+                            easing: 'easeOutExpo'
+                        });
+
+                        // Animasi dropdown buttons
+                        anime({
+                            targets: '.dropdown-btn',
+                            opacity: 1,
+                            translateY: 0,
+                            duration: 800,
+                            delay : anime.stagger(200, {start: 1000}),
+                            easing: 'easeOutExpo'
+                        });
+
+                        // Animasi customer-care
+                        anime({
+                            targets: '.customer-care',
+                            opacity: 1,
+                            translateX: 0,
+                            duration: 1000,
+                            delay: 1500,
+                            easing: 'easeOutExpo'
+                        });
+
+                        // Animasi footer
+                        anime({
+                            targets: 'footer',
+                            opacity: 1,
+                            translateY: 0,
+                            duration: 1000,
+                            delay: 1800,
+                            easing: 'easeOutExpo'
+                        });
+                    }
+                });
+            }, 2500); // Durasi total intro sebelum fade out
+        });
     </script>
 </body>
 </html>
-
-
