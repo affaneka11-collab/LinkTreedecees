@@ -24,6 +24,29 @@
             /* Tambahkan untuk intro overlay */
             position: relative;
         }
+        .greenroundbck {
+            scale: 0.8;
+            background-color: #04e0556a; /* Fallback: rgba(4, 224, 85, 0.42) untuk browser lama */
+            border-radius: 20px; /* Atau gunakan 50% untuk bentuk bulat penuh jika elemen persegi */
+            padding: 2px 5px;
+            padding-right: 11px;
+            display: flex; /* Menggunakan flexbox untuk centering */
+            max-width: fit-content;
+            align-items: center; /* Sekarang berfungsi untuk centering vertikal */
+            justify-content: center; /* Centering horizontal */
+            font-size: medium;
+            font-weight: bold;
+            color: rgb(0, 110, 29);
+            text-align: center;
+            /* Tambahan untuk konsistensi */
+            box-sizing: border-box; /* Mencegah padding menambah ukuran */
+        }
+        .greenroundbck img {
+            height: 20px;
+            /* Hapus properti yang tidak perlu; flexbox dari parent akan menangani centering */
+            /* Jika perlu penyesuaian khusus, gunakan margin atau flex-shrink */
+            flex-shrink: 0; /* Mencegah gambar menyusut */
+        }
         /* Overlay untuk intro animasi */
         .intro-overlay {
             position: fixed;
@@ -127,7 +150,7 @@
             transform: translateY(20px);
         }
         .link-item {
-            display: flex;
+            display: block;
             align-items: center;
             background: rgba(255, 255, 255, 0.25);
             color: #fff;
@@ -358,16 +381,32 @@
             <h4> Tidak Mendapat Update </h4>
             <a href="https://www.roblox.com/id/games/18543659842/Indonesia-Millenium-Train-Sector-Sembon" class="link-item" target="_blank">
                 <img src="inmitra.png" alt="Inmitra"> Inmitra
+                <span class="greenroundbck">
+                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                    Published
+                </span>
             </a>
             <a href="https://www.roblox.com/id/games/112887240560643/INDONESIA-TRAIN-DRIVE-SIMULATOR" class="link-item" target="_blank">
                 <img src="itds.png" alt="ITDS"> Indonesian Train Drive Simulator (ITDS)
+                <span class="greenroundbck">
+                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                    Published
+                </span>
             </a>
             <h4> Masih Update </h4>
             <a href="https://www.roblox.com/id/games/112972515177807/Nusantara-Millenium-Railway" class="link-item" target="_blank">
                 <img src="nmr.png" alt="NMR"> Nusantara Milenium Railway (NMR)
+                <span class="greenroundbck">
+                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                    Published
+                </span>
             </a>
             <a href="https://www.roblox.com/id/games/95965113212556/Indonesia-Train-Incident" class="link-item" target="_blank">
                 <img src="jtc.png" alt="JTC"> Indonesia Train Incident
+                <span class="greenroundbck">
+                    <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
+                    Published
+                </span>
             </a>
         </div>
     </div>
