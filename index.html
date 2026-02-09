@@ -48,9 +48,8 @@
             height: 20px;
             flex-shrink: 0; 
         }
-        .greyroundbck {
+        .roundbck {
             scale: 0.8;
-            background-color: #9a9a9a6a; /* Fallback: rgba(4, 224, 85, 0.42) untuk browser lama */
             border-radius: 20px; /* Atau gunakan 50% untuk bentuk bulat penuh jika elemen persegi */
             padding: 2px 5px;
             padding-right: 11px;
@@ -60,12 +59,11 @@
             justify-content: center; /* Centering horizontal */
             font-size: medium;
             font-weight: bold;
-            color: rgb(67, 67, 67);
             text-align: center;
             /* Tambahan untuk konsistensi */
             box-sizing: border-box; /* Mencegah padding menambah ukuran */
         }
-        .greyroundbck img {
+        .roundbck img {
             height: 20px;
             /* Hapus properti yang tidak perlu; flexbox dari parent akan menangani centering */
             /* Jika perlu penyesuaian khusus, gunakan margin atau flex-shrink */
@@ -164,7 +162,7 @@
                 transform: translateY(0);
             }
         }
-        .linktree-container h2 {
+        h2 {
             font-size: 32px;
             margin-bottom: 30px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -362,6 +360,14 @@
             height: 100%;
             object-fit: cover;
         }
+        .togray {
+            background-color: #80808083;
+            color : rgb(58, 58, 58);
+        }
+        .toorange {
+            background-color: #f0690fac;
+            color : rgb(162, 43, 0);
+        }
 
         @media (max-width: 768px) {
             header {
@@ -380,7 +386,7 @@
                 width: 95%;
                 padding: 20px 10px;
             }
-            .linktree-container h2 {
+            h2 {
                 font-size: 28px;
                 margin-bottom: 20px;
             }
@@ -461,8 +467,8 @@
                 </div>
             </div>
         </div>
+
     <div class="linktree-container"> 
-        
         <h2>LinkTrees</h2>
         <button class="dropdown-btn" onclick="togglehiddenlinktree('social-links')">  
             <img src="social.png" alt="Social Media"> Social Media Links
@@ -496,7 +502,7 @@
                         <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
                         Published
                     </span>
-                    <span class="greyroundbck">
+                    <span class="roundbck togray">
                         <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_do_not_disturb_on_neutral_20x20_65d02e4c33a1f08daad354d59f00a0ff.png">
                         Not Updated
                     </span>
@@ -509,9 +515,11 @@
                         <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_check_circle_tertiary_20x20_821fb74f4e5a8f0603580630bbfaa2b0.png">
                         Published
                     </span>
-                    <span class="greyroundbck">
+                    <span class="roundbck togray">
                         <img src="https://www.gstatic.com/identity/boq/accountsettingsmobile/statechipuniticons_do_not_disturb_on_neutral_20x20_65d02e4c33a1f08daad354d59f00a0ff.png">
                         Not Updated
+                    </span>
+                    <span>
                     </span>
                 </div>
             </a>
@@ -616,7 +624,7 @@
                         });
 
                         anime({
-                            targets: '.linktree-container h2',
+                            targets: 'h2',
                             opacity: 1,
                             translateY: 0,
                             duration: 1000,
