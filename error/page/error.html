@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under Maintanace</title>
+    <style>
+        body {
+            background: #1f2937;
+            height: 100%;
+        }
+        .tengah {
+            justify-content: center;
+        }
+        .gambar {
+            scale: 0.8;
+            justify-self: center;
+            justify-content: center;
+            display: flex;
+            transition: all 1s all;
+            animation: naetrn 4s ease-in-out infinite alternate;
+        }
+        p {
+            color: aliceblue;
+            font-weight: 400;
+            justify-self: center;
+            font-size: larger;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 100;
+        }
+        @keyframes naetrn {
+            0% {
+                transform: translateY(+20px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(+20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="tengah">
+        <img src="https://png.pngtree.com/png-vector/20260113/ourmid/pngtree-exclamation-mark-in-triangle-warning-sign-illustration-vector-png-image_18491181.webp" class="gambar">
+        <p>Maaf, Saat ini <span id="iu7hubw21" style="font-weight: bold;"></span> sedang dalam perbaikan/pemeliharaan sistem, silahkan kembali beberapa waktu lagi</p>
+    </div>
+    <footer> 
+        <p>&copy <a href="https://wa.me/082220949233">AffanEkaP</a></p>
+    </footer>
+    <script>
+        document.getElementById("iu7hubw21").innerText = window.location.href;
+    </script>
+</body>
+</html>
